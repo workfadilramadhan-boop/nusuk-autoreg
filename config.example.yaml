@@ -1,0 +1,48 @@
+# Nusuk Auto-Registration Bot - configuration
+# Copy this file to config.yaml and adjust to your setup.
+
+# --- MEmu / ADB ---
+adb:
+  # Default MEmu ADB address. Multi-instance uses 21513, 21523, ...
+  # Cek di MEmu Multi-Instance Manager -> "ADB" kolom.
+  host: "127.0.0.1"
+  port: 21503
+  # Path ke adb.exe. Biarkan "adb" kalau sudah ada di PATH.
+  # Kalau belum, isi absolute path, misal:
+  #   "C:/Program Files/Microvirt/MEmu/adb.exe"
+  adb_path: "adb"
+
+# --- Nusuk app ---
+nusuk:
+  package: "sa.gov.mcit.hajj"       # package name aplikasi Nusuk
+  activity: ".MainActivity"           # opsional; bot akan pakai monkey kalau kosong
+  # Timeout global (detik) menunggu elemen muncul.
+  wait_timeout: 30
+  # Delay antar aksi klik/ketik (detik) biar gak kecepatan.
+  action_delay: 0.8
+
+# --- Input / Output ---
+io:
+  input_xlsx: "data/input.xlsx"
+  output_xlsx: "output/results.xlsx"
+  logs_dir: "output/logs"
+  screenshots_dir: "output/screenshots"
+
+# --- Email (mail.tm) ---
+mailtm:
+  base_url: "https://api.mail.tm"
+  # Polling OTP
+  otp_poll_interval_sec: 3
+  otp_timeout_sec: 120
+  # Regex untuk ambil OTP dari email. Default: 4-8 digit angka.
+  otp_regex: "\\b(\\d{4,8})\\b"
+
+# --- Behavior ---
+run:
+  # Jeda random antar akun (detik) biar gak kelihatan bot.
+  between_accounts_sec_min: 5
+  between_accounts_sec_max: 15
+  # Maksimum retry per akun kalau gagal.
+  max_retries: 1
+  # Simpan screenshot tiap step (debug). Matikan kalau disk kamu penuh.
+  screenshot_each_step: false
