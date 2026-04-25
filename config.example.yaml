@@ -14,7 +14,7 @@ adb:
 
 # --- Nusuk app ---
 nusuk:
-  package: "sa.gov.mcit.hajj"       # package name aplikasi Nusuk
+  package: "com.moh.nusukapp"       # package name aplikasi Nusuk (Hajj/Umrah official)
   activity: ".MainActivity"           # opsional; bot akan pakai monkey kalau kosong
   # Timeout global (detik) menunggu elemen muncul.
   wait_timeout: 30

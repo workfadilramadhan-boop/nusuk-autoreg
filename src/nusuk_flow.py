@@ -58,8 +58,18 @@ class Selectors:
         "Ask app not to track",
     )
 
-    # Main landing
-    CREATE_ACCOUNT: tuple[str, ...] = ("Create account", "Create Account", "CREATE ACCOUNT")
+    # Main landing — Nusuk versi com.moh.nusukapp:
+    #   Step a: tombol "Login/Register" di home
+    #   Step b: setelah itu tombol "Register New Account"
+    LOGIN_REGISTER: tuple[str, ...] = (
+        "Login/Register", "Login / Register", "LOGIN/REGISTER",
+        "Login", "LOGIN",
+    )
+    REGISTER_NEW_ACCOUNT: tuple[str, ...] = (
+        "Register New Account", "Register new account",
+        "REGISTER NEW ACCOUNT", "Create New Account", "Create new account",
+        "Create account", "Create Account", "CREATE ACCOUNT",
+    )
     LANGUAGE_ENGLISH: tuple[str, ...] = ("English",)
     LANGUAGE_OK: tuple[str, ...] = ("OK", "Ok", "Confirm")
 
@@ -158,8 +168,9 @@ def register(
         _click_text_if_present(adb, SEL.LANGUAGE_OK, timeout=5)
         sleep_jitter(1.0)
 
-    # ---- 3. Create account ----
-    _click_text(adb, SEL.CREATE_ACCOUNT)
+    # ---- 3. Login/Register -> Register New Account ----
+    _click_text(adb, SEL.LOGIN_REGISTER)
+    _click_text(adb, SEL.REGISTER_NEW_ACCOUNT)
 
     # ---- 4. International visitor ----
     _click_text(adb, SEL.INTERNATIONAL_VISITOR)

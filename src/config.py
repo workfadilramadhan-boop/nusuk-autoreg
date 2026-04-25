@@ -22,7 +22,7 @@ class AdbConfig:
 
 @dataclass
 class NusukConfig:
-    package: str = "sa.gov.mcit.hajj"
+    package: str = "com.moh.nusukapp"
     activity: str = ""
     wait_timeout: int = 30
     action_delay: float = 0.8
